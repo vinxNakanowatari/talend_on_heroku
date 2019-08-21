@@ -1,0 +1,440 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.jsuarez</groupId>
+	<artifactId>worker-queue</artifactId>
+	<version>1.0.0</version>
+	<name>worker-queue</name>
+	<packaging>jar</packaging>	
+
+    <build>
+        <finalName>worker-queue</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.5.1</version>
+                <inherited>true</inherited>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>appassembler-maven-plugin</artifactId>
+                <version>1.1.1</version>
+                <configuration>
+                    <assembleDirectory>target</assembleDirectory>
+                    <programs>
+                        <program>
+                            <mainClass>launch.Main</mainClass>
+                            <name>webapp</name>
+                        </program>
+                        <program>
+                          <mainClass>com.jsuarez.WorkerProcess</mainClass>
+                          <name>worker</name>
+                        </program>
+                        <program>
+                          <mainClass>com.jsuarez.TestHeroku</mainClass>
+                          <name>test</name>
+                        </program>
+                        <program>
+                          <mainClass>com.jsuarez.RuntimeRunner</mainClass>
+                          <name>run</name>
+                        </program>
+                        
+                    </programs>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>assemble</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.glassfish.jersey</groupId>
+                <artifactId>jersey-bom</artifactId>
+                <version>${jersey.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        
+<dependency>
+    <artifactId>post_test_job_0_1</artifactId>
+    <groupId>com.javier.local</groupId>    
+    <version>0.1</version>
+</dependency>
+
+<dependency>
+    <groupId>com.javier.local</groupId>
+    <artifactId>routines</artifactId>
+    <version>0.1</version>
+</dependency>
+<dependency>
+    <groupId>com.javier.local</groupId>
+    <artifactId>ST4-4.0.7</artifactId>
+    <version>0.1</version>
+</dependency>
+<dependency>
+    <groupId>com.javier.local</groupId>
+    <artifactId>annotation-2.4.0</artifactId>
+    <version>0.1</version>
+</dependency>
+<dependency>
+    <groupId>com.javier.local</groupId>
+    <artifactId>antlr-2.7.7</artifactId>
+    <version>0.1</version>
+</dependency>
+<dependency>
+    <groupId>com.javier.local</groupId>
+    <artifactId>antlr-runtime-3.5</artifactId>
+    <version>0.1</version>
+</dependency>
+<dependency>
+    <groupId>com.javier.local</groupId>
+    <artifactId>antlr4-runtime-4.6</artifactId>
+    <version>0.1</version>
+</dependency>
+<dependency>
+    <groupId>com.javier.local</groupId>
+    <artifactId>auto-common-0.3</artifactId>
+    <version>0.1</version>
+</dependency>
+<dependency>
+    <groupId>com.javier.local</groupId>
+    <artifactId>auto-service-1.0-rc2</artifactId>
+    <version>0.1</version>
+</dependency>
+<dependency>
+    <groupId>com.javier.local</groupId>
+    <artifactId>avro-1.8.1</artifactId>
+    <version>0.1</version>
+</dependency>
+<dependency>
+    <groupId>com.javier.local</groupId>
+    <artifactId>commons-beanutils-1.8.0</artifactId>
+    <version>0.1</version>
+</dependency>
+<dependency>
+    <groupId>com.javier.local</groupId>
+    <artifactId>commons-codec-1.6</artifactId>
+    <version>0.1</version>
+</dependency>
+<dependency>
+    <groupId>com.javier.local</groupId>
+    <artifactId>commons-collections-3.2</artifactId>
+    <version>0.1</version>
+</dependency>
+<dependency>
+    <groupId>com.javier.local</groupId>
+    <artifactId>commons-compress-1.8.1</artifactId>
+    <version>0.1</version>
+</dependency>
+<dependency>
+    <groupId>com.javier.local</groupId>
+    <artifactId>commons-lang3-3.4</artifactId>
+    <version>0.1</version>
+</dependency>
+<dependency>
+    <groupId>com.javier.local</groupId>
+    <artifactId>commons-logging-1.1.1</artifactId>
+    <version>0.1</version>
+</dependency>
+<dependency>
+    <groupId>com.javier.local</groupId>
+    <artifactId>components-api-0.19.2</artifactId>
+    <version>0.1</version>
+</dependency>
+<dependency>
+    <groupId>com.javier.local</groupId>
+    <artifactId>components-common-0.19.2</artifactId>
+    <version>0.1</version>
+</dependency>
+<dependency>
+    <groupId>com.javier.local</groupId>
+    <artifactId>components-common-oauth-0.19.2</artifactId>
+    <version>0.1</version>
+</dependency>
+<dependency>
+    <groupId>com.javier.local</groupId>
+    <artifactId>components-salesforce-definition-0.19.2</artifactId>
+    <version>0.1</version>
+</dependency>
+<dependency>
+    <groupId>com.javier.local</groupId>
+    <artifactId>components-salesforce-runtime-0.19.2</artifactId>
+    <version>0.1</version>
+</dependency>
+<dependency>
+    <groupId>com.javier.local</groupId>
+    <artifactId>daikon-0.17.0</artifactId>
+    <version>0.1</version>
+</dependency>
+<dependency>
+    <groupId>com.javier.local</groupId>
+    <artifactId>dom4j-1.6.1</artifactId>
+    <version>0.1</version>
+</dependency>
+<dependency>
+    <groupId>com.javier.local</groupId>
+    <artifactId>force-partner-api-39.0.0</artifactId>
+    <version>0.1</version>
+</dependency>
+<dependency>
+    <groupId>com.javier.local</groupId>
+    <artifactId>force-wsc-39.0.5</artifactId>
+    <version>0.1</version>
+</dependency>
+<dependency>
+    <groupId>com.javier.local</groupId>
+    <artifactId>guava-19.0</artifactId>
+    <version>0.1</version>
+</dependency>
+<dependency>
+    <groupId>com.javier.local</groupId>
+    <artifactId>jackson-annotations-2.5.3</artifactId>
+    <version>0.1</version>
+</dependency>
+<dependency>
+    <groupId>com.javier.local</groupId>
+    <artifactId>jackson-core-2.5.3</artifactId>
+    <version>0.1</version>
+</dependency>
+<dependency>
+    <groupId>com.javier.local</groupId>
+    <artifactId>jackson-core-asl-1.9.13</artifactId>
+    <version>0.1</version>
+</dependency>
+<dependency>
+    <groupId>com.javier.local</groupId>
+    <artifactId>jackson-databind-2.5.3</artifactId>
+    <version>0.1</version>
+</dependency>
+<dependency>
+    <groupId>com.javier.local</groupId>
+    <artifactId>jackson-mapper-asl-1.9.13</artifactId>
+    <version>0.1</version>
+</dependency>
+<dependency>
+    <groupId>com.javier.local</groupId>
+    <artifactId>javacsv-2.0</artifactId>
+    <version>0.1</version>
+</dependency>
+<dependency>
+    <groupId>com.javier.local</groupId>
+    <artifactId>javax.inject-1</artifactId>
+    <version>0.1</version>
+</dependency>
+<dependency>
+    <groupId>com.javier.local</groupId>
+    <artifactId>javax.servlet-api-3.1.0</artifactId>
+    <version>0.1</version>
+</dependency>
+<dependency>
+    <groupId>com.javier.local</groupId>
+    <artifactId>jcl-over-slf4j-1.6.6</artifactId>
+    <version>0.1</version>
+</dependency>
+<dependency>
+    <groupId>com.javier.local</groupId>
+    <artifactId>jetty-http-9.2.19.v20160908</artifactId>
+    <version>0.1</version>
+</dependency>
+<dependency>
+    <groupId>com.javier.local</groupId>
+    <artifactId>jetty-io-9.2.19.v20160908</artifactId>
+    <version>0.1</version>
+</dependency>
+<dependency>
+    <groupId>com.javier.local</groupId>
+    <artifactId>jetty-server-9.2.19.v20160908</artifactId>
+    <version>0.1</version>
+</dependency>
+<dependency>
+    <groupId>com.javier.local</groupId>
+    <artifactId>jetty-util-9.2.19.v20160908</artifactId>
+    <version>0.1</version>
+</dependency>
+<dependency>
+    <groupId>com.javier.local</groupId>
+    <artifactId>joda-time-2.8.2</artifactId>
+    <version>0.1</version>
+</dependency>
+<dependency>
+    <groupId>com.javier.local</groupId>
+    <artifactId>json-20131018</artifactId>
+    <version>0.1</version>
+</dependency>
+<dependency>
+    <groupId>com.javier.local</groupId>
+    <artifactId>json-io-4.9.9-TALEND</artifactId>
+    <version>0.1</version>
+</dependency>
+<dependency>
+    <groupId>com.javier.local</groupId>
+    <artifactId>json-simple-1.1.1</artifactId>
+    <version>0.1</version>
+</dependency>
+<dependency>
+    <groupId>com.javier.local</groupId>
+    <artifactId>log4j-1.2.16</artifactId>
+    <version>0.1</version>
+</dependency>
+<dependency>
+    <groupId>com.javier.local</groupId>
+    <artifactId>org.apache.oltu.oauth2.client-1.0.0</artifactId>
+    <version>0.1</version>
+</dependency>
+<dependency>
+    <groupId>com.javier.local</groupId>
+    <artifactId>org.apache.oltu.oauth2.common-1.0.0</artifactId>
+    <version>0.1</version>
+</dependency>
+<dependency>
+    <groupId>com.javier.local</groupId>
+    <artifactId>paranamer-2.7</artifactId>
+    <version>0.1</version>
+</dependency>
+<dependency>
+    <groupId>com.javier.local</groupId>
+    <artifactId>pax-url-aether-2.4.7</artifactId>
+    <version>0.1</version>
+</dependency>
+<dependency>
+    <groupId>com.javier.local</groupId>
+    <artifactId>slf4j-api-1.7.12</artifactId>
+    <version>0.1</version>
+</dependency>
+<dependency>
+    <groupId>com.javier.local</groupId>
+    <artifactId>slf4j-log4j12-1.7.2</artifactId>
+    <version>0.1</version>
+</dependency>
+<dependency>
+    <groupId>com.javier.local</groupId>
+    <artifactId>snappy-java-1.1.1.3</artifactId>
+    <version>0.1</version>
+</dependency>
+<dependency>
+    <groupId>com.javier.local</groupId>
+    <artifactId>stringtemplate-3.2.1</artifactId>
+    <version>0.1</version>
+</dependency>
+<dependency>
+    <groupId>com.javier.local</groupId>
+    <artifactId>talend-codegen-utils</artifactId>
+    <version>0.1</version>
+</dependency>
+<dependency>
+    <groupId>com.javier.local</groupId>
+    <artifactId>talend_file_enhanced_20070724</artifactId>
+    <version>0.1</version>
+</dependency>
+<dependency>
+    <groupId>com.javier.local</groupId>
+    <artifactId>talendcsv</artifactId>
+    <version>0.1</version>
+</dependency>
+<dependency>
+    <groupId>com.javier.local</groupId>
+    <artifactId>xz-1.5</artifactId>
+    <version>0.1</version>
+</dependency>
+
+
+        <dependency>
+          <groupId>com.rabbitmq</groupId>
+          <artifactId>amqp-client</artifactId>
+          <version>3.3.4</version>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jersey.containers</groupId>
+            <artifactId>jersey-container-servlet-core</artifactId>
+            <!-- use the following artifactId if you don't need servlet 2.x compatibility -->
+            <!-- artifactId>jersey-container-servlet</artifactId -->
+        </dependency>
+        
+        <dependency>
+            <groupId>org.glassfish.jersey.media</groupId>
+            <artifactId>jersey-media-moxy</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-core</artifactId>
+            <version>${tomcat.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-logging-juli</artifactId>
+            <version>${tomcat.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-jasper</artifactId>
+            <version>${tomcat.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-jasper</artifactId>
+            <version>${tomcat.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-jasper-el</artifactId>
+            <version>${tomcat.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-jsp-api</artifactId>
+            <version>${tomcat.version}</version>
+        </dependency>
+
+        <!-- Uncomment if you want your application use postgresql
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>9.4-1201-jdbc4</version>
+        </dependency>
+    	-->
+
+        <!-- For test purposes -->
+        <dependency>
+            <groupId>org.glassfish.jersey.test-framework.providers</groupId>
+            <artifactId>jersey-test-framework-provider-bundle</artifactId>
+            <type>pom</type>
+            <scope>test</scope>
+        </dependency>
+
+
+        
+    </dependencies>
+    <properties>
+        <jersey.version>2.17</jersey.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <tomcat.version>7.0.57</tomcat.version>
+    </properties>
+    <repositories>
+        <!--other repositories if any-->
+        <repository>
+            <id>project.local</id>
+            <name>project</name>
+            <url>file:${project.basedir}/repo</url>
+        </repository>
+    </repositories>
+</project>
